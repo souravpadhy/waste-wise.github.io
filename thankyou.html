@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional CSS for table and progress bar */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #000;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        .progress-bar {
+            position: relative;
+            width: 80%;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #007bff;
+            width: 60%; /* Set the width dynamically based on the progress */
+        }
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-weight: bold;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 999;
+        }
+        .history-table {
+            width: 80%;
+            border-collapse: collapse;
+        }
+        .history-table th, .history-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup" id="popup">
+        <p>You have submitted!</p>
+    </div>
+
+    <div class="container">
+        <h2>Hurray! You have donated 50 kgs of plastic.</h2>
+        <p>Now you are more closer to your reward.</p>
+        
+       
+
+        <div class="progress-bar">
+            <div class="progress"></div> <!-- Change width dynamically based on progress -->
+            <div class="progress-text">60%</div> <!-- Text indicating the percentage filled -->
+        </div>
+
+        <table class="history-table">
+            <caption>Donation History</caption>
+            <tr>
+                <th>Sl No.</th>
+                <th>Date</th>
+                <th>Type of Plastic</th>
+                <th>Amount (kgs)</th>
+            </tr>
+            <tbody id="history-table-body"></tbody> <!-- tbody for inserting dynamic rows -->
+        </table>
+    </div>
+
+    <script>
+        // Function to generate random date
+        function randomDate(start, end) {
+            return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+        }
+
+        // Function to generate random donation history data and insert into table
+        function generateHistoryData() {
+            var tableBody = document.getElementById('history-table-body');
+            for (var i = 1; i <= 5; i++) {
+                var date = randomDate(new Date(2022, 0, 1), new Date());
+                var plasticTypes = ['Polythene', 'Bottles', 'Others'];
+                var plasticType = plasticTypes[Math.floor(Math.random() * plasticTypes.length)];
+                var amount = Math.floor(Math.random() * 100) + 1; // Random amount between 1 and 100
+                var row = '<tr><td>' + i + '</td><td>' + date.toDateString() + '</td><td>' + plasticType + '</td><td>' + amount + '</td></tr>';
+                tableBody.innerHTML += row;
+            }
+        }
+
+        // Show popup message
+        document.addEventListener("DOMContentLoaded", function() {
+            var popup = document.getElementById('popup');
+            popup.style.display = 'block';
+            setTimeout(function() {
+                popup.style.display = 'none';
+            }, 3000); // Hide popup after 3 seconds
+            
+            // Generate random donation history data
+            generateHistoryData();
+        });
+    </script>
+</body>
+</html>

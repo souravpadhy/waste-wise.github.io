@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+</head>
+<body>
+        
+    </div>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collect Waste</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #6AB2FF; /* Background color matching Donate Waste page */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: calc(100% - 22px); /* Adjusted width to account for padding */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Collect Waste</h2>
+        <form id="collectForm" action="new.html" method="POST">
+            <!-- Your form fields here -->
+            <div class="form-group">
+                <label for="plasticType">Type of Plastic:</label>
+                <select id="plasticType" name="plasticType">
+                    <option value="">Select Type</option>
+                    <option value="Polythene">Polythene</option>
+                    <option value="Bottles">Bottles</option>
+                    <option value="Others">Others</option>
+                    <option value="None">None</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount of Plastic (in kgs):</label>
+                <input type="number" id="amount" name="amount" min="0" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <select id="location" name="location">
+                    <option value="">Select Location</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact:</label>
+                <input type="text" id="contact" name="contact">
+            </div>
+            <style>
+                /* CSS styles for the submit button */
+                button[type="submit"] {
+                    background-color: #007bff; /* Blue background color */
+                    color: #fff; /* White text color */
+                    padding: 15px 30px; /* Padding around text */
+                    border: none; /* No border */
+                    border-radius: 5px; /* Rounded corners */
+                    cursor: pointer; /* Cursor style on hover */
+                    transition: background-color 0.3s; /* Smooth transition for background color */
+                    text-align:end;   
+                    display: inline-block;
+                    
+                
+                
+                }
+        
+                button[type="submit"]:hover {
+                    background-color: #0056b3; /* Darker blue color on hover */
+                }
+        
+                /* CSS styles to center the submit button */
+                .button-container {
+                    text-align: center; /* Center-align content */
+                }
+            </style>
+            <button type="submit">Submit</button>
+            <a href="new.html" class="btn"></a>
+
+            
+        </form>
+    </div>
+
+    
